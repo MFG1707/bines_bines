@@ -41,7 +41,8 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [loading, setLoading] = useState(false);
 
-  const handleQuantityChange = (id, increment) => {
+  // Mise à jour du type pour le paramètre 'id'
+  const handleQuantityChange = (id: number, increment: boolean) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id
@@ -51,7 +52,7 @@ const CartPage = () => {
     );
   };
 
-  const handleRemoveItem = (id) => {
+  const handleRemoveItem = (id: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
