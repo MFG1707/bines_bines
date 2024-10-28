@@ -39,7 +39,8 @@ const collections = [
 const CollectionsPage = () => {
   const router = useRouter();
 
-  const handleViewCollection = (collectionId) => {
+  // Ajout du type string pour le paramètre collectionId
+  const handleViewCollection = (collectionId: number) => {
     router.push(`/collections/${collectionId}`);
   };
 
@@ -70,7 +71,7 @@ const CollectionsPage = () => {
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Button
                     variant="contained"
-                    onClick={() => handleViewCollection(collection.id)}
+                    onClick={() => handleViewCollection(collection.id)} // Passer l'ID de la collection
                     sx={{
                       backgroundColor: '#FFD700',
                       color: '#000000',
