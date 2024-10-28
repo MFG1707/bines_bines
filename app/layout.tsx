@@ -20,7 +20,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import BrushIcon from '@mui/icons-material/Brush';
-import HomeIcon from '@mui/icons-material/Home'; // Ajoutez cette ligne
+import HomeIcon from '@mui/icons-material/Home';
 
 const drawerWidth = 240;
 
@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const menuItems = [
-    { text: 'Accueil', path: '/', icon: <HomeIcon /> }, // Mettez à jour ici
+    { text: 'Accueil', path: '/', icon: <HomeIcon /> },
     { text: 'Mon compte', path: '/account', icon: <AccountCircleIcon /> },
     { text: 'Produits', path: '/products', icon: <LocalOfferIcon /> },
     { text: 'Collections', path: '/collections', icon: <CollectionsIcon /> },
@@ -56,16 +56,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <html lang="fr">
       <body>
         <div style={{ display: 'flex' }}>
-          {/* AppBar avec un thème noir et or */}
+          {/* AppBar avec la palette de couleurs inversée */}
           <AppBar
             position="fixed"
-            style={{ zIndex: 1201, backgroundColor: '#000', color: '#FFD700', paddingLeft: open ? drawerWidth : 0 }}
+            style={{ zIndex: 1201, backgroundColor: '#E86252', color: '#F3D3CD', paddingLeft: open ? drawerWidth : 0 }}
           >
             <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
               <IconButton onClick={toggleDrawer} color="inherit" style={{ transition: 'transform 0.2s' }}>
-                <MenuIcon style={{ fontSize: '30px', transition: 'transform 0.2s' }} />
+                <MenuIcon style={{ fontSize: '30px', transition: 'transform 0.2s', color: '#F3D3CD' }} />
               </IconButton>
-              <Typography variant="h6" noWrap style={{ flexGrow: 1, textAlign: 'center' }}>
+              <Typography variant="h6" noWrap style={{ flexGrow: 1, textAlign: 'center', color: '#F3D3CD' }}>
                 Bines-Bines
               </Typography>
             </Toolbar>
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             variant="temporary"
             open={open}
             onClose={toggleDrawer}
-            PaperProps={{ style: { width: drawerWidth, marginTop: '64px', backgroundColor: '#000', color: '#FFD700' } }}
+            PaperProps={{ style: { width: drawerWidth, marginTop: '64px', backgroundColor: '#EE2677', color: '#F3D3CD' } }}
           >
             <List>
               {menuItems.map((item, index) => (
@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   component="div"
                   key={index}
                   onClick={() => handleNavigation(item.path)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', color: '#F3D3CD' }} // Couleur du texte des éléments du menu
                 >
                   {item.icon}
                   <ListItemText primary={item.text} />
@@ -94,7 +94,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </Drawer>
 
           {/* Contenu principal */}
-          <main style={{ flexGrow: 1, padding: '20px', marginTop: '64px', paddingLeft: open ? drawerWidth : 0 }}>
+          <main style={{ flexGrow: 1, padding: '20px', marginTop: '64px', paddingLeft: open ? drawerWidth : 0, backgroundColor: '#ED96B3' }}>
             {children}
           </main>
         </div>

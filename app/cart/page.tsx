@@ -41,12 +41,11 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [loading, setLoading] = useState(false);
 
-  // Mise à jour de la logique pour le paramètre 'increment'
   const handleQuantityChange = (id: number, increment: boolean) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id
-          ? { ...item, quantity: Math.max(item.quantity + (increment ? 1 : -1), 1) } // Utiliser increment ? 1 : -1
+          ? { ...item, quantity: Math.max(item.quantity + (increment ? 1 : -1), 1) }
           : item
       )
     );
@@ -58,7 +57,6 @@ const CartPage = () => {
 
   const handleCheckout = () => {
     setLoading(true);
-    // Simuler une opération de paiement
     setTimeout(() => {
       setLoading(false);
       alert('Votre commande a été passée !');
@@ -68,24 +66,24 @@ const CartPage = () => {
 
   return (
     <div>
-      <AppBar position="fixed" sx={{ backgroundColor: '#000000' }}>
+      <AppBar position="fixed" sx={{ backgroundColor: '#F3D3CD' }}>
         <Toolbar>
-          <ShoppingCartIcon sx={{ color: '#FFD700' }} />
-          <Typography variant="h6" sx={{ marginLeft: '10px', color: '#FFD700' }}>
+          <ShoppingCartIcon sx={{ color: '#E86252' }} />
+          <Typography variant="h6" sx={{ marginLeft: '10px', color: '#EE2677' }}>
             Mon Panier
           </Typography>
         </Toolbar>
       </AppBar>
-      <div style={{ paddingTop: '64px', padding: '20px', backgroundColor: '#000000' }}>
+      <div style={{ paddingTop: '64px', padding: '20px', backgroundColor: '#ED96B3' }}>
         {cartItems.length === 0 ? (
-          <Typography variant="h6" align="center" sx={{ color: '#FFD700' }}>
+          <Typography variant="h6" align="center" sx={{ color: '#EE2677' }}>
             Votre panier est vide !
           </Typography>
         ) : (
           <Grid container spacing={3}>
             {cartItems.map((item) => (
               <Grid item xs={12} sm={6} md={4} key={item.id}>
-                <Card sx={{ backgroundColor: '#1a1a1a', color: '#FFD700' }}>
+                <Card sx={{ backgroundColor: '#F3D3CD', color: '#E86252' }}>
                   <CardMedia
                     component="img"
                     alt={item.name}
@@ -99,21 +97,21 @@ const CartPage = () => {
                     </Typography>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <IconButton
-                        onClick={() => handleQuantityChange(item.id, false)} // Passer false pour diminuer
+                        onClick={() => handleQuantityChange(item.id, false)}
                         disabled={item.quantity === 1}
-                        sx={{ color: '#FFD700' }}
+                        sx={{ color: '#EE2677' }}
                       >
                         <RemoveIcon />
                       </IconButton>
-                      <Typography sx={{ color: '#FFD700' }}>{item.quantity}</Typography>
-                      <IconButton onClick={() => handleQuantityChange(item.id, true)} sx={{ color: '#FFD700' }}> {/* Passer true pour augmenter */}
+                      <Typography sx={{ color: '#E86252' }}>{item.quantity}</Typography>
+                      <IconButton onClick={() => handleQuantityChange(item.id, true)} sx={{ color: '#EE2677' }}>
                         <AddIcon />
                       </IconButton>
                     </div>
                     <IconButton
                       color="secondary"
                       onClick={() => handleRemoveItem(item.id)}
-                      sx={{ color: '#FFD700' }}
+                      sx={{ color: '#EE2677' }}
                     >
                       <DeleteIcon />
                     </IconButton>
@@ -126,7 +124,7 @@ const CartPage = () => {
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
           <Button
             variant="contained"
-            sx={{ backgroundColor: '#FFD700', color: '#000000' }}
+            sx={{ backgroundColor: '#E86252', color: '#FFFFFF' }}
             onClick={handleCheckout}
             disabled={loading || cartItems.length === 0}
           >

@@ -51,15 +51,15 @@ const ProductsPage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#000', color: '#FFD700' }}>
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFD700' }}>
+    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD', color: '#E86252' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
         Nos Produits
       </Typography>
 
       <Grid container spacing={4}>
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(255, 215, 0, 0.1)', backgroundColor: '#1a1a1a' }}>
+            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(232, 98, 82, 0.1)', backgroundColor: '#ED96B3' }}>
               <CardMedia
                 component="img"
                 height="200"
@@ -68,36 +68,34 @@ const ProductsPage = () => {
                 sx={{ borderRadius: '10px 10px 0 0' }}
               />
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFD700' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
                   {product.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ marginBottom: '10px', color: '#ccc' }}>
+                <Typography variant="body1" color="text.secondary" sx={{ marginBottom: '10px', color: '#333' }}>
                   {product.description}
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFD700' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
                   {product.price}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
                   <Button
                     variant="contained"
-                    color="primary"
                     onClick={() => handleAddToCart(product.id)}
                     sx={{
-                      backgroundColor: '#FFD700',
-                      color: '#000',
-                      '&:hover': { backgroundColor: '#FFC300' },
+                      backgroundColor: '#E86252',
+                      color: '#FFF',
+                      '&:hover': { backgroundColor: '#EE2677' },
                     }}
                   >
                     Ajouter au panier
                   </Button>
                   <Button
                     variant="outlined"
-                    color="primary"
                     onClick={() => handleViewDetails(product.id)}
                     sx={{
-                      borderColor: '#FFD700',
-                      color: '#FFD700',
-                      '&:hover': { backgroundColor: '#333', color: '#FFD700' },
+                      borderColor: '#E86252',
+                      color: '#E86252',
+                      '&:hover': { backgroundColor: '#ED96B3', color: '#E86252' },
                     }}
                   >
                     Détails

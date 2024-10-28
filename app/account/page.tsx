@@ -24,12 +24,12 @@ const AccountPage = () => {
   return (
     <Container maxWidth="md" style={{ marginTop: '40px' }}>
       {/* Titre de la page */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFD700' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
         Mon Compte
       </Typography>
 
       {/* Informations utilisateur */}
-      <Card sx={{ marginBottom: '20px', backgroundColor: '#1c1c1c', color: '#FFD700' }}>
+      <Card sx={{ marginBottom: '20px', backgroundColor: '#F3D3CD', color: '#E86252' }}>
         <CardContent>
           <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>
             Informations personnelles
@@ -42,9 +42,9 @@ const AccountPage = () => {
                 defaultValue="Nom Utilisateur" // À remplacer par les données utilisateur
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
-                InputProps={{ style: { color: '#FFD700' } }} // Texte couleur or
-                sx={{ backgroundColor: '#333' }} // Couleur de fond du champ
+                InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
+                InputProps={{ style: { color: '#E86252' } }} // Texte couleur principale
+                sx={{ backgroundColor: '#ED96B3' }} // Couleur de fond du champ
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -54,9 +54,9 @@ const AccountPage = () => {
                 defaultValue="user@example.com" // À remplacer par les données utilisateur
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
-                InputProps={{ style: { color: '#FFD700' } }} // Texte couleur or
-                sx={{ backgroundColor: '#333' }} // Couleur de fond du champ
+                InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
+                InputProps={{ style: { color: '#E86252' } }} // Texte couleur principale
+                sx={{ backgroundColor: '#ED96B3' }} // Couleur de fond du champ
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -66,9 +66,9 @@ const AccountPage = () => {
                 defaultValue="+221 123 456 789" // À remplacer par les données utilisateur
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
-                InputProps={{ style: { color: '#FFD700' } }} // Texte couleur or
-                sx={{ backgroundColor: '#333' }} // Couleur de fond du champ
+                InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
+                InputProps={{ style: { color: '#E86252' } }} // Texte couleur principale
+                sx={{ backgroundColor: '#ED96B3' }} // Couleur de fond du champ
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -78,15 +78,15 @@ const AccountPage = () => {
                 defaultValue="Adresse utilisateur" // À remplacer par les données utilisateur
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
-                InputProps={{ style: { color: '#FFD700' } }} // Texte couleur or
-                sx={{ backgroundColor: '#333' }} // Couleur de fond du champ
+                InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
+                InputProps={{ style: { color: '#E86252' } }} // Texte couleur principale
+                sx={{ backgroundColor: '#ED96B3' }} // Couleur de fond du champ
               />
             </Grid>
           </Grid>
           <Button
             variant="contained"
-            sx={{ marginTop: '10px', backgroundColor: '#FFD700', color: '#000' }}
+            sx={{ marginTop: '10px', backgroundColor: '#E86252', color: '#FFF' }}
           >
             Mettre à jour les informations
           </Button>
@@ -94,20 +94,20 @@ const AccountPage = () => {
       </Card>
 
       {/* Historique des commandes */}
-      <Card sx={{ marginBottom: '20px', backgroundColor: '#1c1c1c', color: '#FFD700' }}>
+      <Card sx={{ marginBottom: '20px', backgroundColor: '#F3D3CD', color: '#E86252' }}>
         <CardContent>
           <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>
             Historique des commandes
           </Typography>
           <Box>
             {/* Exemple d'une commande - à remplacer par une boucle de données utilisateur */}
-            <Box sx={{ marginBottom: '10px', padding: '10px', border: '1px solid #FFD700', borderRadius: '4px' }}>
+            <Box sx={{ marginBottom: '10px', padding: '10px', border: `1px solid #E86252`, borderRadius: '4px' }}>
               <Typography variant="body1" sx={{ fontWeight: 'bold' }}>Commande #12345</Typography>
               <Typography variant="body2" color="text.secondary">Date: 15 Octobre 2024</Typography>
               <Typography variant="body2" color="text.secondary">Total: 50€</Typography>
               <Button
                 variant="outlined"
-                sx={{ marginTop: '5px', color: '#FFD700', borderColor: '#FFD700' }}
+                sx={{ marginTop: '5px', color: '#E86252', borderColor: '#E86252' }}
                 onClick={() => router.push(`/order/12345`)}
               >
                 Voir les détails
@@ -118,7 +118,7 @@ const AccountPage = () => {
       </Card>
 
       {/* Préférences de personnalisation */}
-      <Card sx={{ marginBottom: '20px', backgroundColor: '#1c1c1c', color: '#FFD700' }}>
+      <Card sx={{ marginBottom: '20px', backgroundColor: '#F3D3CD', color: '#E86252' }}>
         <CardContent>
           <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>
             Préférences de personnalisation
@@ -130,8 +130,8 @@ const AccountPage = () => {
               variant="outlined"
               margin="normal"
               placeholder="Ex: Rouge, Or, Noir"
-              sx={{ backgroundColor: '#333', color: '#FFD700' }}
-              InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
+              sx={{ backgroundColor: '#ED96B3', color: '#E86252' }}
+              InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
             />
           </Box>
           <Box sx={{ marginBottom: '10px' }}>
@@ -141,13 +141,13 @@ const AccountPage = () => {
               variant="outlined"
               margin="normal"
               placeholder="Ex: 80 cm"
-              sx={{ backgroundColor: '#333', color: '#FFD700' }}
-              InputLabelProps={{ style: { color: '#FFD700' } }} // Label couleur or
+              sx={{ backgroundColor: '#ED96B3', color: '#E86252' }}
+              InputLabelProps={{ style: { color: '#E86252' } }} // Label couleur principale
             />
           </Box>
           <Button
             variant="contained"
-            sx={{ backgroundColor: '#FFD700', color: '#000' }}
+            sx={{ backgroundColor: '#E86252', color: '#FFF' }}
           >
             Enregistrer les préférences
           </Button>
@@ -157,7 +157,7 @@ const AccountPage = () => {
       {/* Bouton de déconnexion */}
       <Button
         variant="outlined"
-        sx={{ borderColor: '#FFD700', color: '#FFD700', '&:hover': { backgroundColor: '#444' } }}
+        sx={{ borderColor: '#E86252', color: '#E86252', '&:hover': { backgroundColor: '#ED96B3' } }}
         fullWidth
         onClick={handleLogout}
       >

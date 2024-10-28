@@ -51,20 +51,20 @@ const CustomizationPage = () => {
   ];
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#000000' }}>
-      <Paper elevation={3} style={{ padding: '20px', borderRadius: '10px', backgroundColor: '#1a1a1a', color: '#FFD700' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFD700' }}>
+    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD' }}>
+      <Paper elevation={3} style={{ padding: '20px', borderRadius: '10px', backgroundColor: '#ED96B3', color: '#E86252' }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
           Personnalisez vos Bayas
         </Typography>
         
-        <Typography variant="body1" sx={{ textAlign: 'center', marginBottom: '20px', color: '#FFD700' }}>
+        <Typography variant="body1" sx={{ textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
           Choisissez vos couleurs et motifs pour créer votre propre style !
         </Typography>
 
         <Grid container spacing={4}>
           {/* Section de sélection des couleurs */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#FFD700' }}>
+            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
               Sélectionnez vos couleurs
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -88,7 +88,7 @@ const CustomizationPage = () => {
             </Box>
 
             {/* Section de couleur personnalisée */}
-            <Typography variant="h6" sx={{ marginTop: '20px', color: '#FFD700' }}>
+            <Typography variant="h6" sx={{ marginTop: '20px', color: '#E86252' }}>
               Ou choisissez une couleur personnalisée
             </Typography>
             <ChromePicker
@@ -100,16 +100,16 @@ const CustomizationPage = () => {
 
           {/* Section de sélection des motifs */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#FFD700' }}>
+            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
               Sélectionnez un motif
             </Typography>
             <FormControl fullWidth>
-              <InputLabel id="pattern-select-label" sx={{ color: '#FFD700' }}>Motif</InputLabel>
+              <InputLabel id="pattern-select-label" sx={{ color: '#E86252' }}>Motif</InputLabel>
               <Select
                 labelId="pattern-select-label"
                 value={selectedPattern}
                 onChange={(e) => setSelectedPattern(e.target.value)}
-                sx={{ color: '#FFD700', '& .MuiSelect-icon': { color: '#FFD700' }}}
+                sx={{ color: '#E86252', '& .MuiSelect-icon': { color: '#E86252' }}}
               >
                 {patterns.map((pattern) => (
                   <MenuItem key={pattern} value={pattern}>
@@ -123,7 +123,7 @@ const CustomizationPage = () => {
 
         {/* Section pour choisir la quantité */}
         <Box sx={{ marginTop: '20px' }}>
-          <Typography variant="h6" sx={{ marginBottom: '10px', color: '#FFD700' }}>
+          <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
             Quantité
           </Typography>
           <TextField
@@ -131,7 +131,7 @@ const CustomizationPage = () => {
             value={quantity}
             onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
             inputProps={{ min: 1, max: 10 }}
-            sx={{ width: '100px', color: '#FFD700' }}
+            sx={{ width: '100px', color: '#E86252' }}
           />
         </Box>
 
@@ -142,9 +142,9 @@ const CustomizationPage = () => {
             startIcon={<AddIcon />}
             onClick={handleSubmit}
             sx={{
-              backgroundColor: '#FFD700',
-              color: '#000000',
-              '&:hover': { backgroundColor: '#FFC107' },
+              backgroundColor: '#E86252',
+              color: '#FFF',
+              '&:hover': { backgroundColor: '#EE2677' },
             }}
           >
             Ajouter à mon panier

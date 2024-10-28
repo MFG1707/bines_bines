@@ -1,4 +1,3 @@
-// app/collections/page.tsx
 "use client";
 
 import * as React from 'react';
@@ -39,21 +38,20 @@ const collections = [
 const CollectionsPage = () => {
   const router = useRouter();
 
-  // Ajout du type string pour le paramètre collectionId
   const handleViewCollection = (collectionId: number) => {
     router.push(`/collections/${collectionId}`);
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#000000' }}>
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFD700' }}>
+    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
         Nos Collections
       </Typography>
 
       <Grid container spacing={4}>
         {collections.map((collection) => (
           <Grid item xs={12} sm={6} md={4} key={collection.id}>
-            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', backgroundColor: '#1a1a1a', color: '#FFD700' }}>
+            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(232, 98, 82, 0.1)', backgroundColor: '#ED96B3', color: '#E86252' }}>
               <CardMedia
                 component="img"
                 height="200"
@@ -62,20 +60,20 @@ const CollectionsPage = () => {
                 sx={{ borderRadius: '10px 10px 0 0' }}
               />
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFD700' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
                   {collection.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ marginBottom: '10px', color: '#FFD700' }}>
+                <Typography variant="body2" color="text.secondary" sx={{ marginBottom: '10px', color: '#333' }}>
                   {collection.description}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Button
                     variant="contained"
-                    onClick={() => handleViewCollection(collection.id)} // Passer l'ID de la collection
+                    onClick={() => handleViewCollection(collection.id)}
                     sx={{
-                      backgroundColor: '#FFD700',
-                      color: '#000000',
-                      '&:hover': { backgroundColor: '#FFC107' },
+                      backgroundColor: '#E86252',
+                      color: '#FFF',
+                      '&:hover': { backgroundColor: '#EE2677' },
                     }}
                   >
                     Voir la collection
