@@ -112,7 +112,7 @@ const HomePage = () => {
               <CardContent>
                 <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ color: '#FFD700' }}>{testimony.name}</Typography>
                 <Typography variant="body2" color="text.secondary" textAlign="center">
-                  "{testimony.text}"
+                &quot;{testimony.text}&quot;
                 </Typography>
               </CardContent>
             </Card>

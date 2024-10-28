@@ -29,7 +29,7 @@ const ContactPage = () => {
         </Typography>
         
         <Typography variant="body1" sx={{ marginBottom: '20px', textAlign: 'center', color: '#FFD700' }}>
-          Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter. 
+          Si vous avez des questions ou des préoccupations, n&apos;hésitez pas à nous contacter. 
           Nous sommes là pour vous aider !
         </Typography>
         

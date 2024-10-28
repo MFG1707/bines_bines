@@ -11,7 +11,6 @@ import {
   ListItemText,
   Typography,
   IconButton,
-  Box,
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import MenuIcon from '@mui/icons-material/Menu';
