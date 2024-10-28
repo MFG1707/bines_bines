@@ -1,4 +1,3 @@
-// app/customization/page.tsx
 "use client";
 
 import * as React from 'react';
@@ -19,7 +18,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { ChromePicker } from 'react-color'; // Utiliser un color picker
 
 const CustomizationPage = () => {
-  const [selectedColors, setSelectedColors] = React.useState([]);
+  const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
   const [selectedPattern, setSelectedPattern] = React.useState('');
   const [quantity, setQuantity] = React.useState(1);
   const [customColor, setCustomColor] = React.useState('#ffffff'); // Pour la couleur personnalisée
@@ -34,9 +33,8 @@ const CustomizationPage = () => {
       return [...prevColors, color];
     });
   };
-  
 
-  const handleCustomColorChange = (color) => {
+  const handleCustomColorChange = (color: { hex: string }) => {
     setCustomColor(color.hex);
     handleColorChange(color.hex); // Ajouter la couleur personnalisée aux couleurs sélectionnées
   };
@@ -131,7 +129,7 @@ const CustomizationPage = () => {
           <TextField
             type="number"
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
             inputProps={{ min: 1, max: 10 }}
             sx={{ width: '100px', color: '#FFD700' }}
           />
