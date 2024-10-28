@@ -26,7 +26,7 @@ const CustomizationPage = () => {
 
   const patterns = ['Fleuri', 'Geometrique', 'Linéaire', 'Abstrait'];
 
-  const handleColorChange = (color) => {
+  const handleColorChange = (color: string) => {
     setSelectedColors((prevColors) => {
       if (prevColors.includes(color)) {
         return prevColors.filter((c) => c !== color);
@@ -34,6 +34,7 @@ const CustomizationPage = () => {
       return [...prevColors, color];
     });
   };
+  
 
   const handleCustomColorChange = (color) => {
     setCustomColor(color.hex);
