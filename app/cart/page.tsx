@@ -1,4 +1,4 @@
-// app/cart/page.js
+// app/cart/page.tsx
 "use client";
 import * as React from 'react';
 import {
@@ -41,12 +41,12 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [loading, setLoading] = useState(false);
 
-  // Mise à jour du type pour le paramètre 'id'
+  // Mise à jour de la logique pour le paramètre 'increment'
   const handleQuantityChange = (id: number, increment: boolean) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id
-          ? { ...item, quantity: Math.max(item.quantity + increment, 1) }
+          ? { ...item, quantity: Math.max(item.quantity + (increment ? 1 : -1), 1) } // Utiliser increment ? 1 : -1
           : item
       )
     );
@@ -99,14 +99,14 @@ const CartPage = () => {
                     </Typography>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <IconButton
-                        onClick={() => handleQuantityChange(item.id, -1)}
+                        onClick={() => handleQuantityChange(item.id, false)} // Passer false pour diminuer
                         disabled={item.quantity === 1}
                         sx={{ color: '#FFD700' }}
                       >
                         <RemoveIcon />
                       </IconButton>
                       <Typography sx={{ color: '#FFD700' }}>{item.quantity}</Typography>
-                      <IconButton onClick={() => handleQuantityChange(item.id, 1)} sx={{ color: '#FFD700' }}>
+                      <IconButton onClick={() => handleQuantityChange(item.id, true)} sx={{ color: '#FFD700' }}> {/* Passer true pour augmenter */}
                         <AddIcon />
                       </IconButton>
                     </div>
