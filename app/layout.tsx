@@ -78,7 +78,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           >
             <List>
               {menuItems.map((item, index) => (
-                <ListItem button key={index} onClick={() => handleNavigation(item.path)}>
+                <ListItem
+                  component="div"
+                  key={index}
+                  onClick={() => handleNavigation(item.path)}
+                  style={{ cursor: 'pointer' }}
+                >
                   {item.icon}
                   <ListItemText primary={item.text} />
                 </ListItem>
