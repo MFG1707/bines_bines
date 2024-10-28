@@ -41,11 +41,11 @@ const products = [
 const ProductsPage = () => {
   const router = useRouter();
 
-  const handleViewDetails = (productId) => {
+  const handleViewDetails = (productId: number) => {
     router.push(`/products/${productId}`);
   };
 
-  const handleAddToCart = (productId) => {
+  const handleAddToCart = (productId: number) => {
     // Logique pour ajouter au panier (à implémenter)
     alert(`Produit ${productId} ajouté au panier!`);
   };
