@@ -20,6 +20,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import BrushIcon from '@mui/icons-material/Brush';
+import HomeIcon from '@mui/icons-material/Home'; // Ajoutez cette ligne
 
 const drawerWidth = 240;
 
@@ -41,6 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const menuItems = [
+    { text: 'Accueil', path: '/', icon: <HomeIcon /> }, // Mettez à jour ici
     { text: 'Mon compte', path: '/account', icon: <AccountCircleIcon /> },
     { text: 'Produits', path: '/products', icon: <LocalOfferIcon /> },
     { text: 'Collections', path: '/collections', icon: <CollectionsIcon /> },
