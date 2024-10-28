@@ -1,4 +1,3 @@
-// components/Layout.js
 "use client";
 
 import * as React from 'react';
@@ -24,7 +23,11 @@ import BrushIcon from '@mui/icons-material/Brush';
 
 const drawerWidth = 240;
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
 
@@ -32,7 +35,7 @@ const Layout = ({ children }) => {
     setOpen(!open);
   };
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     router.push(path);
     toggleDrawer();
   };
