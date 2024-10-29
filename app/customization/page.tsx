@@ -15,15 +15,17 @@ import {
   MenuItem,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { ChromePicker } from 'react-color'; // Utiliser un color picker
+import { ChromePicker } from 'react-color';
 
 const CustomizationPage = () => {
   const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
   const [selectedPattern, setSelectedPattern] = React.useState('');
   const [quantity, setQuantity] = React.useState(1);
-  const [customColor, setCustomColor] = React.useState('#ffffff'); // Pour la couleur personnalisée
+  const [customColor, setCustomColor] = React.useState('#ffffff');
+  const [letterCount, setLetterCount] = React.useState(0);
+  const [nameInput, setNameInput] = React.useState('');
 
-  const patterns = ['Fleuri', 'Geometrique', 'Linéaire', 'Abstrait'];
+  const patterns = ['Fleuri', 'Géométrique', 'Linéaire', 'Abstrait'];
 
   const handleColorChange = (color: string) => {
     setSelectedColors((prevColors) => {
@@ -36,38 +38,36 @@ const CustomizationPage = () => {
 
   const handleCustomColorChange = (color: { hex: string }) => {
     setCustomColor(color.hex);
-    handleColorChange(color.hex); // Ajouter la couleur personnalisée aux couleurs sélectionnées
+    handleColorChange(color.hex);
+  };
+
+  const handleNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    setNameInput(input);
+    setLetterCount(input.length); // Mettre à jour le nombre de lettres en temps réel
   };
 
   const handleSubmit = () => {
-    alert(`Vous avez choisi: ${selectedColors.join(', ')} avec le motif ${selectedPattern}. Quantité: ${quantity}`);
+    const totalCost = letterCount * 400;
+    alert(`Vous avez choisi: ${selectedColors.join(', ')} avec le motif ${selectedPattern}. Quantité: ${quantity}. Coût total: ${totalCost} FCFA pour le nom "${nameInput}".`);
   };
 
   const predefinedColors = [
-    '#FF5733', '#FFBD33', '#75FF33', '#33FF57', '#33FFBD',
-    '#33A1FF', '#3357FF', '#5733FF', '#BD33FF', '#FF33A1',
-    '#FFC0CB', '#FFD700', '#ADFF2F', '#20B2AA', '#FF69B4',
-    '#8A2BE2', '#FF4500', '#2E8B57', '#FFA07A', '#D2691E',
+    '#F3D3CD', '#ED96B3', '#E86252', '#EE2677',
   ];
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD' }}>
-      <Paper elevation={3} style={{ padding: '20px', borderRadius: '10px', backgroundColor: '#ED96B3', color: '#E86252' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
+    <Container maxWidth="lg" sx={{ marginTop: '40px', backgroundColor: '#F9F9F9', borderRadius: '10px' }}>
+      <Paper elevation={3} sx={{ padding: '20px', borderRadius: '20px', backgroundColor: '#ED96B3', color: '#E86252' }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFF', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
           Personnalisez vos Bayas
-        </Typography>
-        
-        <Typography variant="body1" sx={{ textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
-          Choisissez vos couleurs et motifs pour créer votre propre style !
         </Typography>
 
         <Grid container spacing={4}>
-          {/* Section de sélection des couleurs */}
-          <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
-              Sélectionnez vos couleurs
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+          {/* Section Couleurs */}
+          <Grid item xs={12} md={3}>
+            <Typography variant="h6" sx={{ color: '#FFF' }}>Couleurs</Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '10px' }}>
               {predefinedColors.map((color) => (
                 <Button
                   key={color}
@@ -76,66 +76,64 @@ const CustomizationPage = () => {
                   sx={{
                     backgroundColor: selectedColors.includes(color) ? color : 'white',
                     color: selectedColors.includes(color) ? 'white' : 'black',
-                    '&:hover': {
-                      backgroundColor: selectedColors.includes(color) ? color : '#e0e0e0',
-                    },
-                    width: '50px',
-                    height: '50px',
+                    width: '40px',
+                    height: '40px',
                     borderRadius: '50%',
+                    transition: '0.3s',
                   }}
                 />
               ))}
             </Box>
-
-            {/* Section de couleur personnalisée */}
-            <Typography variant="h6" sx={{ marginTop: '20px', color: '#E86252' }}>
-              Ou choisissez une couleur personnalisée
-            </Typography>
-            <ChromePicker
-              color={customColor}
-              onChangeComplete={handleCustomColorChange}
-              style={{ marginTop: '10px' }}
-            />
+            <Typography variant="body2" sx={{ color: '#FFF' }}>Couleur personnalisée :</Typography>
+            <ChromePicker color={customColor} onChangeComplete={handleCustomColorChange} />
           </Grid>
 
-          {/* Section de sélection des motifs */}
-          <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
-              Sélectionnez un motif
-            </Typography>
-            <FormControl fullWidth>
-              <InputLabel id="pattern-select-label" sx={{ color: '#E86252' }}>Motif</InputLabel>
+          {/* Section Motifs */}
+          <Grid item xs={12} md={3}>
+            <Typography variant="h6" sx={{ color: '#FFF' }}>Motif</Typography>
+            <FormControl fullWidth sx={{ marginTop: '10px' }}>
+              <InputLabel id="pattern-select-label" sx={{ color: '#FFF' }}>Choisissez un motif</InputLabel>
               <Select
                 labelId="pattern-select-label"
                 value={selectedPattern}
                 onChange={(e) => setSelectedPattern(e.target.value)}
-                sx={{ color: '#E86252', '& .MuiSelect-icon': { color: '#E86252' }}}
+                sx={{ color: '#E86252', '& .MuiSelect-icon': { color: '#FFF' }}}
               >
                 {patterns.map((pattern) => (
-                  <MenuItem key={pattern} value={pattern}>
-                    {pattern}
-                  </MenuItem>
+                  <MenuItem key={pattern} value={pattern}>{pattern}</MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
+
+          {/* Section Quantité */}
+          <Grid item xs={12} md={3}>
+            <Typography variant="h6" sx={{ color: '#FFF' }}>Quantité</Typography>
+            <TextField
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
+              inputProps={{ min: 1, max: 10 }}
+              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFF', borderRadius: '5px' }}
+            />
+          </Grid>
+
+          {/* Section Lettres Personnalisées */}
+          <Grid item xs={12} md={3}>
+            <Typography variant="h6" sx={{ color: '#FFF' }}>Nom Personnalisé</Typography>
+            <TextField
+              type="text"
+              value={nameInput}
+              onChange={handleNameInputChange} // Utilisation de la fonction pour gérer le changement
+              placeholder="Entrez votre nom"
+              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFF', borderRadius: '5px' }}
+            />
+            <Typography variant="body2" sx={{ color: '#FFF', marginTop: '10px' }}>
+              Nombre de lettres : {letterCount} (Coût: {letterCount * 400} FCFA)
+            </Typography>
+          </Grid>
         </Grid>
 
-        {/* Section pour choisir la quantité */}
-        <Box sx={{ marginTop: '20px' }}>
-          <Typography variant="h6" sx={{ marginBottom: '10px', color: '#E86252' }}>
-            Quantité
-          </Typography>
-          <TextField
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-            inputProps={{ min: 1, max: 10 }}
-            sx={{ width: '100px', color: '#E86252' }}
-          />
-        </Box>
-
-        {/* Bouton de soumission */}
         <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
           <Button
             variant="contained"
@@ -145,6 +143,10 @@ const CustomizationPage = () => {
               backgroundColor: '#E86252',
               color: '#FFF',
               '&:hover': { backgroundColor: '#EE2677' },
+              padding: '10px 20px',
+              fontSize: '16px',
+              borderRadius: '50px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
             }}
           >
             Ajouter à mon panier
