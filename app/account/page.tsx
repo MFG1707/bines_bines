@@ -126,8 +126,8 @@ const AccountPage = () => {
           borderColor: '#FFFFFF',
           color: '#FFFFFF',
           '&:hover': { backgroundColor: '#EE2677' },
-          fullWidth: true,
         }}
+        fullWidth // Déplacez fullWidth ici
         onClick={handleLogout}
       >
         Déconnexion
