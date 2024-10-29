@@ -59,13 +59,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {/* AppBar avec la palette de couleurs inversée */}
           <AppBar
             position="fixed"
-            style={{ zIndex: 1201, backgroundColor: '#E86252', color: '#F3D3CD', paddingLeft: open ? drawerWidth : 0 }}
+            style={{ zIndex: 1201, backgroundColor: '#EE2677', color: '#FFFFFF', paddingLeft: open ? drawerWidth : 0 }}
           >
             <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
               <IconButton onClick={toggleDrawer} color="inherit" style={{ transition: 'transform 0.2s' }}>
-                <MenuIcon style={{ fontSize: '30px', transition: 'transform 0.2s', color: '#F3D3CD' }} />
+                <MenuIcon style={{ fontSize: '30px', transition: 'transform 0.2s', color: '#FFFFFF' }} />
               </IconButton>
-              <Typography variant="h6" noWrap style={{ flexGrow: 1, textAlign: 'center', color: '#F3D3CD' }}>
+              <Typography variant="h6" noWrap style={{ flexGrow: 1, textAlign: 'center', color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>
                 Bines-Bines
               </Typography>
             </Toolbar>
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             variant="temporary"
             open={open}
             onClose={toggleDrawer}
-            PaperProps={{ style: { width: drawerWidth, marginTop: '64px', backgroundColor: '#EE2677', color: '#F3D3CD' } }}
+            PaperProps={{ style: { width: drawerWidth, marginTop: '64px', backgroundColor: '#EE2677', color: '#FFFFFF' } }}
           >
             <List>
               {menuItems.map((item, index) => (
@@ -84,17 +84,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   component="div"
                   key={index}
                   onClick={() => handleNavigation(item.path)}
-                  style={{ cursor: 'pointer', color: '#F3D3CD' }} // Couleur du texte des éléments du menu
+                  style={{ cursor: 'pointer', color: '#FFFFFF' }} // Couleur du texte des éléments du menu
                 >
                   {item.icon}
-                  <ListItemText primary={item.text} />
+                  <ListItemText primary={item.text} primaryTypographyProps={{ style: { color: '#FFFFFF', fontFamily: `'Open Sans', sans-serif` } }} />
                 </ListItem>
               ))}
             </List>
           </Drawer>
 
           {/* Contenu principal */}
-          <main style={{ flexGrow: 1, padding: '20px', marginTop: '64px', paddingLeft: open ? drawerWidth : 0, backgroundColor: '#ED96B3' }}>
+          <main style={{ flexGrow: 1, padding: '20px', marginTop: '64px', paddingLeft: open ? drawerWidth : 0, backgroundColor: '#F3D3CD' }}>
             {children}
           </main>
         </div>

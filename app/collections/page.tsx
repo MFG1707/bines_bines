@@ -43,15 +43,31 @@ const CollectionsPage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD' }}>
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
+    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#FFFFFF' }}>
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: '20px',
+          color: '#EE2677',
+          fontFamily: `'Dancing Script', cursive`,
+        }}
+      >
         Nos Collections
       </Typography>
 
       <Grid container spacing={4}>
         {collections.map((collection) => (
           <Grid item xs={12} sm={6} md={4} key={collection.id}>
-            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(232, 98, 82, 0.1)', backgroundColor: '#ED96B3', color: '#E86252' }}>
+            <Card
+              sx={{
+                borderRadius: '10px',
+                boxShadow: '0px 4px 8px rgba(238, 38, 119, 0.2)',
+                backgroundColor: '#FFFFFF',
+                color: '#EE2677',
+              }}
+            >
               <CardMedia
                 component="img"
                 height="200"
@@ -60,10 +76,21 @@ const CollectionsPage = () => {
                 sx={{ borderRadius: '10px 10px 0 0' }}
               />
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 'bold',
+                    color: '#EE2677',
+                    fontFamily: `'Dancing Script', cursive`,
+                  }}
+                >
                   {collection.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ marginBottom: '10px', color: '#333' }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ marginBottom: '10px', color: '#EE2677' }}
+                >
                   {collection.description}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -71,9 +98,13 @@ const CollectionsPage = () => {
                     variant="contained"
                     onClick={() => handleViewCollection(collection.id)}
                     sx={{
-                      backgroundColor: '#E86252',
-                      color: '#FFF',
-                      '&:hover': { backgroundColor: '#EE2677' },
+                      backgroundColor: '#EE2677',
+                      color: '#FFFFFF',
+                      '&:hover': {
+                        backgroundColor: '#FFFFFF',
+                        color: '#EE2677',
+                        border: '1px solid #EE2677',
+                      },
                     }}
                   >
                     Voir la collection

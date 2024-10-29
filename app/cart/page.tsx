@@ -1,4 +1,3 @@
-// app/cart/page.tsx
 "use client";
 import * as React from 'react';
 import {
@@ -19,13 +18,13 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 
-// Exemple de données de produits dans le panier
+// Example product data in cart
 const initialCartItems = [
   {
     id: 1,
     name: 'Baya Colorée',
     price: 25,
-    image: '/images/baya1.jpg', // Remplacez par le chemin réel de l'image
+    image: '/images/baya1.jpg',
     quantity: 1,
   },
   {
@@ -60,21 +59,21 @@ const CartPage = () => {
     setTimeout(() => {
       setLoading(false);
       alert('Votre commande a été passée !');
-      setCartItems([]); // Vider le panier après la commande
+      setCartItems([]); // Clear the cart after checkout
     }, 2000);
   };
 
   return (
     <div>
-      <AppBar position="fixed" sx={{ backgroundColor: '#F3D3CD' }}>
+      <AppBar position="fixed" sx={{ backgroundColor: '#FFFFFF' }}>
         <Toolbar>
-          <ShoppingCartIcon sx={{ color: '#E86252' }} />
+          <ShoppingCartIcon sx={{ color: '#EE2677' }} />
           <Typography variant="h6" sx={{ marginLeft: '10px', color: '#EE2677' }}>
             Mon Panier
           </Typography>
         </Toolbar>
       </AppBar>
-      <div style={{ paddingTop: '64px', padding: '20px', backgroundColor: '#ED96B3' }}>
+      <div style={{ paddingTop: '64px', padding: '20px', backgroundColor: '#FFFFFF' }}>
         {cartItems.length === 0 ? (
           <Typography variant="h6" align="center" sx={{ color: '#EE2677' }}>
             Votre panier est vide !
@@ -83,7 +82,7 @@ const CartPage = () => {
           <Grid container spacing={3}>
             {cartItems.map((item) => (
               <Grid item xs={12} sm={6} md={4} key={item.id}>
-                <Card sx={{ backgroundColor: '#F3D3CD', color: '#E86252' }}>
+                <Card sx={{ backgroundColor: '#FFFFFF', color: '#EE2677', border: `1px solid #EE2677` }}>
                   <CardMedia
                     component="img"
                     alt={item.name}
@@ -103,7 +102,7 @@ const CartPage = () => {
                       >
                         <RemoveIcon />
                       </IconButton>
-                      <Typography sx={{ color: '#E86252' }}>{item.quantity}</Typography>
+                      <Typography sx={{ color: '#EE2677' }}>{item.quantity}</Typography>
                       <IconButton onClick={() => handleQuantityChange(item.id, true)} sx={{ color: '#EE2677' }}>
                         <AddIcon />
                       </IconButton>
@@ -124,7 +123,7 @@ const CartPage = () => {
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
           <Button
             variant="contained"
-            sx={{ backgroundColor: '#E86252', color: '#FFFFFF' }}
+            sx={{ backgroundColor: '#EE2677', color: '#FFFFFF' }}
             onClick={handleCheckout}
             disabled={loading || cartItems.length === 0}
           >

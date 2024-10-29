@@ -44,7 +44,7 @@ const CustomizationPage = () => {
   const handleNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     setNameInput(input);
-    setLetterCount(input.length); // Mettre à jour le nombre de lettres en temps réel
+    setLetterCount(input.length);
   };
 
   const handleSubmit = () => {
@@ -52,21 +52,19 @@ const CustomizationPage = () => {
     alert(`Vous avez choisi: ${selectedColors.join(', ')} avec le motif ${selectedPattern}. Quantité: ${quantity}. Coût total: ${totalCost} FCFA pour le nom "${nameInput}".`);
   };
 
-  const predefinedColors = [
-    '#F3D3CD', '#ED96B3', '#E86252', '#EE2677',
-  ];
+  const predefinedColors = ['#EE2677', '#FFFFFF'];
 
   return (
-    <Container maxWidth="lg" sx={{ marginTop: '40px', backgroundColor: '#F9F9F9', borderRadius: '10px' }}>
-      <Paper elevation={3} sx={{ padding: '20px', borderRadius: '20px', backgroundColor: '#ED96B3', color: '#E86252' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFF', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
+    <Container maxWidth="lg" sx={{ marginTop: '40px', backgroundColor: '#FFFFFF', borderRadius: '10px' }}>
+      <Paper elevation={3} sx={{ padding: '20px', borderRadius: '20px', backgroundColor: '#EE2677', color: '#FFFFFF' }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFFFFF', fontFamily: `'Dancing Script', cursive`, textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
           Personnalisez vos Bayas
         </Typography>
 
         <Grid container spacing={4}>
           {/* Section Couleurs */}
           <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFF' }}>Couleurs</Typography>
+            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Couleurs</Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '10px' }}>
               {predefinedColors.map((color) => (
                 <Button
@@ -74,8 +72,8 @@ const CustomizationPage = () => {
                   variant={selectedColors.includes(color) ? 'contained' : 'outlined'}
                   onClick={() => handleColorChange(color)}
                   sx={{
-                    backgroundColor: selectedColors.includes(color) ? color : 'white',
-                    color: selectedColors.includes(color) ? 'white' : 'black',
+                    backgroundColor: selectedColors.includes(color) ? color : '#FFFFFF',
+                    color: selectedColors.includes(color) ? '#FFFFFF' : '#EE2677',
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
@@ -84,20 +82,20 @@ const CustomizationPage = () => {
                 />
               ))}
             </Box>
-            <Typography variant="body2" sx={{ color: '#FFF' }}>Couleur personnalisée :</Typography>
+            <Typography variant="body2" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Couleur personnalisée :</Typography>
             <ChromePicker color={customColor} onChangeComplete={handleCustomColorChange} />
           </Grid>
 
           {/* Section Motifs */}
           <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFF' }}>Motif</Typography>
+            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Motif</Typography>
             <FormControl fullWidth sx={{ marginTop: '10px' }}>
-              <InputLabel id="pattern-select-label" sx={{ color: '#FFF' }}>Choisissez un motif</InputLabel>
+              <InputLabel id="pattern-select-label" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Choisissez un motif</InputLabel>
               <Select
                 labelId="pattern-select-label"
                 value={selectedPattern}
                 onChange={(e) => setSelectedPattern(e.target.value)}
-                sx={{ color: '#E86252', '& .MuiSelect-icon': { color: '#FFF' }}}
+                sx={{ color: '#FFFFFF', '& .MuiSelect-icon': { color: '#FFFFFF' } }}
               >
                 {patterns.map((pattern) => (
                   <MenuItem key={pattern} value={pattern}>{pattern}</MenuItem>
@@ -108,27 +106,27 @@ const CustomizationPage = () => {
 
           {/* Section Quantité */}
           <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFF' }}>Quantité</Typography>
+            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Quantité</Typography>
             <TextField
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
               inputProps={{ min: 1, max: 10 }}
-              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFF', borderRadius: '5px' }}
+              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFFFFF', borderRadius: '5px' }}
             />
           </Grid>
 
           {/* Section Lettres Personnalisées */}
           <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFF' }}>Nom Personnalisé</Typography>
+            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Nom Personnalisé</Typography>
             <TextField
               type="text"
               value={nameInput}
-              onChange={handleNameInputChange} // Utilisation de la fonction pour gérer le changement
+              onChange={handleNameInputChange}
               placeholder="Entrez votre nom"
-              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFF', borderRadius: '5px' }}
+              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFFFFF', borderRadius: '5px' }}
             />
-            <Typography variant="body2" sx={{ color: '#FFF', marginTop: '10px' }}>
+            <Typography variant="body2" sx={{ color: '#FFFFFF', marginTop: '10px', fontFamily: `'Dancing Script', cursive` }}>
               Nombre de lettres : {letterCount} (Coût: {letterCount * 400} FCFA)
             </Typography>
           </Grid>
@@ -140,9 +138,9 @@ const CustomizationPage = () => {
             startIcon={<AddIcon />}
             onClick={handleSubmit}
             sx={{
-              backgroundColor: '#E86252',
-              color: '#FFF',
-              '&:hover': { backgroundColor: '#EE2677' },
+              backgroundColor: '#EE2677',
+              color: '#FFFFFF',
+              '&:hover': { backgroundColor: '#EE2677', opacity: 0.9 },
               padding: '10px 20px',
               fontSize: '16px',
               borderRadius: '50px',

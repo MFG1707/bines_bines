@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Typography, Button, Grid, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
-
 const HomePage = () => {
   const router = useRouter();
 
@@ -13,7 +12,7 @@ const HomePage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '20px', backgroundColor: '#FFFFF', color: '#000' }}>
+    <Container maxWidth="lg" style={{ marginTop: '20px', backgroundColor: '#FFFFFF', color: '#000' }}>
       {/* Section Bannière */}
       <Box
         sx={{
@@ -36,9 +35,9 @@ const HomePage = () => {
           variant="contained"
           onClick={() => handleNavigation('/products')}
           sx={{
-            backgroundColor: '#E86252',
+            backgroundColor: '#EE2677',
             color: '#FFFFFF',
-            '&:hover': { backgroundColor: '#ED96B3' },
+            '&:hover': { backgroundColor: '#EE2677' },
           }}
         >
           Explorer notre collection
@@ -46,7 +45,7 @@ const HomePage = () => {
       </Box>
 
       {/* Section de Présentation des Collections */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#FFFFFF' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
         Collections Exclusives
       </Typography>
       <Grid container spacing={4}>
@@ -56,10 +55,10 @@ const HomePage = () => {
           { title: 'Charme Moderne', img: '/images/moderne.jpg' },
         ].map((collection, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card onClick={() => handleNavigation(`/collections/${collection.title.toLowerCase()}`)} sx={{ cursor: 'pointer', backgroundColor: '#ED96B3' }}>
+            <Card onClick={() => handleNavigation(`/collections/${collection.title.toLowerCase()}`)} sx={{ cursor: 'pointer', backgroundColor: '#EE2677' }}>
               <CardMedia component="img" height="250" image={collection.img} alt={collection.title} />
               <CardContent>
-                <Typography variant="h5" textAlign="center" sx={{ color: '#F3D3CD' }}>{collection.title}</Typography>
+                <Typography variant="h5" textAlign="center" sx={{ color: '#FFFFFF' }}>{collection.title}</Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -69,7 +68,7 @@ const HomePage = () => {
       {/* Section Personnalisation */}
       <Box
         sx={{
-          backgroundColor: '#E86252',
+          backgroundColor: '#EE2677',
           padding: '40px',
           marginTop: '60px',
           textAlign: 'center',
@@ -79,15 +78,15 @@ const HomePage = () => {
         <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF' }}>
           Personnalisez vos bayas
         </Typography>
-        <Typography variant="body1" sx={{ marginBottom: '20px', color: '#F3D3CD' }}>
+        <Typography variant="body1" sx={{ marginBottom: '20px', color: '#FFFFFF' }}>
           Créez des bayas sur-mesure en choisissant les couleurs, perles et tailles qui vous correspondent.
         </Typography>
         <Button
           variant="outlined"
           onClick={() => handleNavigation('/customization')}
           sx={{
-            borderColor: '#F3D3CD',
-            color: '#F3D3CD',
+            borderColor: '#FFFFFF',
+            color: '#FFFFFF',
             '&:hover': { backgroundColor: '#F0E6F6' },
           }}
         >
@@ -96,7 +95,7 @@ const HomePage = () => {
       </Box>
 
       {/* Témoignages des Clients */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#FFFFFF' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
         Ce que disent nos clientes
       </Typography>
       <Grid container spacing={4} sx={{ marginBottom: '60px' }}>
@@ -106,10 +105,10 @@ const HomePage = () => {
           { name: 'Mariam', text: 'J\'adore mes nouvelles bayas, elles sont uniques et élégantes.', img: '/images/client3.jpg' },
         ].map((testimony, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ backgroundColor: '#ED96B3' }}>
+            <Card sx={{ backgroundColor: '#EE2677' }}>
               <CardMedia component="img" height="140" image={testimony.img} alt={testimony.name} />
               <CardContent>
-                <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ color: '#F3D3CD' }}>{testimony.name}</Typography>
+                <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ color: '#FFFFFF' }}>{testimony.name}</Typography>
                 <Typography variant="body2" textAlign="center" sx={{ color: '#000' }}>
                   &quot;{testimony.text}&quot;
                 </Typography>

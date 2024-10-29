@@ -35,7 +35,6 @@ const products = [
     description: 'Un mélange de perles colorées pour un look vibrant.',
     image: '/images/baya_multicolore.jpg',
   },
-  // Ajoutez plus de produits ici
 ];
 
 const ProductsPage = () => {
@@ -46,20 +45,29 @@ const ProductsPage = () => {
   };
 
   const handleAddToCart = (productId: number) => {
-    // Logique pour ajouter au panier (à implémenter)
     alert(`Produit ${productId} ajouté au panier!`);
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#F3D3CD', color: '#E86252' }}>
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#E86252' }}>
+    <Container maxWidth="lg" style={{ marginTop: '40px', backgroundColor: '#FFFFFF', color: '#EE2677' }}>
+      <Typography variant="h4" sx={{
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '20px',
+        color: '#EE2677',
+        fontFamily: `'Dancing Script', cursive`,
+      }}>
         Nos Produits
       </Typography>
 
       <Grid container spacing={4}>
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <Card sx={{ borderRadius: '10px', boxShadow: '0px 4px 8px rgba(232, 98, 82, 0.1)', backgroundColor: '#ED96B3' }}>
+            <Card sx={{
+              borderRadius: '10px',
+              boxShadow: '0px 4px 8px rgba(238, 38, 119, 0.1)',
+              backgroundColor: '#FFFFFF',
+            }}>
               <CardMedia
                 component="img"
                 height="200"
@@ -68,13 +76,24 @@ const ProductsPage = () => {
                 sx={{ borderRadius: '10px 10px 0 0' }}
               />
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
+                <Typography variant="h6" sx={{
+                  fontWeight: 'bold',
+                  color: '#EE2677',
+                  fontFamily: `'Dancing Script', cursive`,
+                }}>
                   {product.name}
                 </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ marginBottom: '10px', color: '#333' }}>
+                <Typography variant="body1" sx={{
+                  marginBottom: '10px',
+                  color: '#333',
+                  fontFamily: `'Open Sans', sans-serif`,
+                }}>
                   {product.description}
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#E86252' }}>
+                <Typography variant="h6" sx={{
+                  fontWeight: 'bold',
+                  color: '#EE2677',
+                }}>
                   {product.price}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
@@ -82,9 +101,10 @@ const ProductsPage = () => {
                     variant="contained"
                     onClick={() => handleAddToCart(product.id)}
                     sx={{
-                      backgroundColor: '#E86252',
-                      color: '#FFF',
-                      '&:hover': { backgroundColor: '#EE2677' },
+                      backgroundColor: '#EE2677',
+                      color: '#FFFFFF',
+                      '&:hover': { backgroundColor: '#F3D3CD' },
+                      fontFamily: `'Open Sans', sans-serif`,
                     }}
                   >
                     Ajouter au panier
@@ -93,9 +113,10 @@ const ProductsPage = () => {
                     variant="outlined"
                     onClick={() => handleViewDetails(product.id)}
                     sx={{
-                      borderColor: '#E86252',
-                      color: '#E86252',
-                      '&:hover': { backgroundColor: '#ED96B3', color: '#E86252' },
+                      borderColor: '#EE2677',
+                      color: '#EE2677',
+                      '&:hover': { backgroundColor: '#F3D3CD', color: '#EE2677' },
+                      fontFamily: `'Open Sans', sans-serif`,
                     }}
                   >
                     Détails
