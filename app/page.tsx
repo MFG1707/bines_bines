@@ -13,7 +13,7 @@ const HomePage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '20px', backgroundColor: '#F3D3CD', color: '#000' }}>
+    <Container maxWidth="lg" style={{ marginTop: '20px', backgroundColor: '#FFFFF', color: '#000' }}>
       {/* Section Bannière */}
       <Box
         sx={{
@@ -26,10 +26,10 @@ const HomePage = () => {
           borderRadius: '8px',
         }}
       >
-        <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#EE2677' }}>
+        <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF' }}>
           Bienvenue chez Bines-Bines
         </Typography>
-        <Typography variant="h5" sx={{ marginBottom: '20px', color: '#EE2677' }}>
+        <Typography variant="h5" sx={{ marginBottom: '20px', color: '#FFFFFF' }}>
           Découvrez notre collection unique de bayas pour toutes les occasions
         </Typography>
         <Button
@@ -46,7 +46,7 @@ const HomePage = () => {
       </Box>
 
       {/* Section de Présentation des Collections */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#FFFFFF' }}>
         Collections Exclusives
       </Typography>
       <Grid container spacing={4}>
@@ -76,7 +76,7 @@ const HomePage = () => {
           borderRadius: '8px',
         }}
       >
-        <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#F3D3CD' }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF' }}>
           Personnalisez vos bayas
         </Typography>
         <Typography variant="body1" sx={{ marginBottom: '20px', color: '#F3D3CD' }}>
@@ -96,8 +96,8 @@ const HomePage = () => {
       </Box>
 
       {/* Témoignages des Clients */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
-        Ce que disent nos clients
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#FFFFFF' }}>
+        Ce que disent nos clientes
       </Typography>
       <Grid container spacing={4} sx={{ marginBottom: '60px' }}>
         {[
