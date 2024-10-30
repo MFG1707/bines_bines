@@ -26,7 +26,7 @@ const HomePage = () => {
         marginTop: '20px', 
         backgroundColor: '#FFFFFF', 
         color: '#000', 
-        fontFamily: dancingScript.style.fontFamily  // Application de la police
+        fontFamily: dancingScript.style.fontFamily // Application de la police
       }}
     >
       {/* Section Bannière */}
@@ -39,12 +39,13 @@ const HomePage = () => {
           padding: '60px',
           textAlign: 'center',
           borderRadius: '8px',
+          fontFamily: dancingScript.style.fontFamily
         }}
       >
-        <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF' }}>
+        <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>
           Bienvenue chez Bines-Bines
         </Typography>
-        <Typography variant="h5" sx={{ marginBottom: '20px', color: '#FFFFFF' }}>
+        <Typography variant="h5" sx={{ marginBottom: '20px', color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>
           Découvrez notre collection unique de bayas pour toutes les occasions
         </Typography>
         <Button
@@ -53,6 +54,7 @@ const HomePage = () => {
           sx={{
             backgroundColor: '#EE2677',
             color: '#FFFFFF',
+            fontFamily: dancingScript.style.fontFamily,
             '&:hover': { backgroundColor: '#EE2677' },
           }}
         >
@@ -61,7 +63,7 @@ const HomePage = () => {
       </Box>
 
       {/* Section de Présentation des Collections */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677', fontFamily: dancingScript.style.fontFamily }}>
         Collections Exclusives
       </Typography>
       <Grid container spacing={4}>
@@ -71,10 +73,10 @@ const HomePage = () => {
           { title: 'Charme Moderne', img: '/images/moderne.jpg' },
         ].map((collection, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card onClick={() => handleNavigation(`/collections/${collection.title.toLowerCase()}`)} sx={{ cursor: 'pointer', backgroundColor: '#EE2677' }}>
+            <Card onClick={() => handleNavigation(`/collections/${collection.title.toLowerCase()}`)} sx={{ cursor: 'pointer', backgroundColor: '#EE2677', fontFamily: dancingScript.style.fontFamily }}>
               <CardMedia component="img" height="250" image={collection.img} alt={collection.title} />
               <CardContent>
-                <Typography variant="h5" textAlign="center" sx={{ color: '#FFFFFF' }}>{collection.title}</Typography>
+                <Typography variant="h5" textAlign="center" sx={{ color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>{collection.title}</Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -89,12 +91,13 @@ const HomePage = () => {
           marginTop: '60px',
           textAlign: 'center',
           borderRadius: '8px',
+          fontFamily: dancingScript.style.fontFamily
         }}
       >
-        <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF' }}>
+        <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '10px', color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>
           Personnalisez vos bayas
         </Typography>
-        <Typography variant="body1" sx={{ marginBottom: '20px', color: '#FFFFFF' }}>
+        <Typography variant="body1" sx={{ marginBottom: '20px', color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>
           Créez des bayas sur-mesure en choisissant les couleurs, perles et tailles qui vous correspondent.
         </Typography>
         <Button
@@ -103,6 +106,7 @@ const HomePage = () => {
           sx={{
             borderColor: '#FFFFFF',
             color: '#FFFFFF',
+            fontFamily: dancingScript.style.fontFamily,
             '&:hover': { backgroundColor: '#F0E6F6' },
           }}
         >
@@ -111,7 +115,7 @@ const HomePage = () => {
       </Box>
 
       {/* Témoignages des Clients */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginY: '40px', color: '#EE2677', fontFamily: dancingScript.style.fontFamily }}>
         Ce que disent nos clientes
       </Typography>
       <Grid container spacing={4} sx={{ marginBottom: '60px' }}>
@@ -121,11 +125,11 @@ const HomePage = () => {
           { name: 'Mariam', text: 'J\'adore mes nouvelles bayas, elles sont uniques et élégantes.', img: '/images/client3.jpg' },
         ].map((testimony, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ backgroundColor: '#EE2677' }}>
+            <Card sx={{ backgroundColor: '#EE2677', fontFamily: dancingScript.style.fontFamily }}>
               <CardMedia component="img" height="140" image={testimony.img} alt={testimony.name} />
               <CardContent>
-                <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ color: '#FFFFFF' }}>{testimony.name}</Typography>
-                <Typography variant="body2" textAlign="center" sx={{ color: '#000' }}>
+                <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ color: '#FFFFFF', fontFamily: dancingScript.style.fontFamily }}>{testimony.name}</Typography>
+                <Typography variant="body2" textAlign="center" sx={{ color: '#000', fontFamily: dancingScript.style.fontFamily }}>
                   &quot;{testimony.text}&quot;
                 </Typography>
               </CardContent>
