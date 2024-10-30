@@ -13,12 +13,12 @@ import {
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
-// Importation de la police Google Font
-import { Dancing_Script } from '@next/font/google';
+// Importation de la police Google Font avec le nouveau système
+import { Dancing_Script } from 'next/font/google';
 
 const dancingScript = Dancing_Script({
   subsets: ['latin'],
-  weight: '400',
+  weight: ['400'],
 });
 
 const AccountPage = () => {
@@ -61,7 +61,7 @@ const AccountPage = () => {
               <TextField
                 fullWidth
                 label="Nom"
-                defaultValue="Nom Utilisateur" // Remplacez par les données réelles de l'utilisateur
+                defaultValue="Nom Utilisateur"
                 variant="outlined"
                 margin="normal"
                 InputLabelProps={{ style: { color: '#FFFFFF' } }}
@@ -69,7 +69,6 @@ const AccountPage = () => {
                 sx={{ backgroundColor: '#EE2677' }}
               />
             </Grid>
-            {/* Ajoutez d'autres champs ici */}
           </Grid>
           <Button
             variant="contained"
@@ -85,7 +84,6 @@ const AccountPage = () => {
         </CardContent>
       </Card>
 
-      {/* Section Historique des commandes */}
       <Card sx={{ marginBottom: '20px', backgroundColor: '#EE2677', color: '#FFFFFF' }}>
         <CardContent>
           <Typography
@@ -119,7 +117,6 @@ const AccountPage = () => {
         </CardContent>
       </Card>
 
-      {/* Bouton de déconnexion */}
       <Button
         variant="outlined"
         sx={{
@@ -127,7 +124,7 @@ const AccountPage = () => {
           color: '#FFFFFF',
           '&:hover': { backgroundColor: '#EE2677' },
         }}
-        fullWidth // Déplacez fullWidth ici
+        fullWidth
         onClick={handleLogout}
       >
         Déconnexion
