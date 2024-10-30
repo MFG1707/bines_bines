@@ -4,6 +4,14 @@ import * as React from 'react';
 import { Typography, Button, Grid, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
+// Importation de la police Google Font avec next/font/google
+import { Dancing_Script } from 'next/font/google';
+
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
 const HomePage = () => {
   const router = useRouter();
 
@@ -12,7 +20,15 @@ const HomePage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '20px', backgroundColor: '#FFFFFF', color: '#000' }}>
+    <Container 
+      maxWidth="lg" 
+      style={{ 
+        marginTop: '20px', 
+        backgroundColor: '#FFFFFF', 
+        color: '#000', 
+        fontFamily: dancingScript.style.fontFamily  // Application de la police
+      }}
+    >
       {/* Section Bannière */}
       <Box
         sx={{
