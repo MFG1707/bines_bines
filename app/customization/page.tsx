@@ -3,156 +3,141 @@
 import * as React from 'react';
 import {
   Container,
-  Typography,
   Grid,
-  Paper,
+  TextField,
+  Typography,
   Button,
   Box,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
+  InputAdornment,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import { ChromePicker } from 'react-color';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-const CustomizationPage = () => {
-  const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
-  const [selectedPattern, setSelectedPattern] = React.useState('');
-  const [quantity, setQuantity] = React.useState(1);
-  const [customColor, setCustomColor] = React.useState('#ffffff');
-  const [letterCount, setLetterCount] = React.useState(0);
-  const [nameInput, setNameInput] = React.useState('');
+const CustomizeProductPage = ({ productId }: { productId: number }) => {
+  const router = useRouter();
+  const [hipSize, setHipSize] = React.useState<number | ''>('');
+  const [rounds, setRounds] = React.useState<number>(1);
+  const [customText, setCustomText] = React.useState<string>('');
+  const [photo, setPhoto] = React.useState<File | null>(null);
+  const [totalCost, setTotalCost] = React.useState<number>(0);
 
-  const patterns = ['Fleuri', 'Géométrique', 'Linéaire', 'Abstrait'];
+  // Constants for customization cost
+  const basePrice = 30; // Example base price for baya in Euros
+  const costPerLetter = 400; // FCFA
 
-  const handleColorChange = (color: string) => {
-    setSelectedColors((prevColors) => {
-      if (prevColors.includes(color)) {
-        return prevColors.filter((c) => c !== color);
-      }
-      return [...prevColors, color];
-    });
+  React.useEffect(() => {
+    // Calculate total cost based on text length
+    const textCost = customText.length * costPerLetter;
+    setTotalCost(basePrice + textCost);
+  }, [customText]);
+
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setPhoto(e.target.files[0]);
+    }
   };
 
-  const handleCustomColorChange = (color: { hex: string }) => {
-    setCustomColor(color.hex);
-    handleColorChange(color.hex);
+  const handleAddToCart = () => {
+    alert(`Produit personnalisé ajouté au panier ! Prix total: ${totalCost} FCFA`);
+    router.push('/cart');
   };
-
-  const handleNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value;
-    setNameInput(input);
-    setLetterCount(input.length);
-  };
-
-  const handleSubmit = () => {
-    const totalCost = letterCount * 400;
-    alert(`Vous avez choisi: ${selectedColors.join(', ')} avec le motif ${selectedPattern}. Quantité: ${quantity}. Coût total: ${totalCost} FCFA pour le nom "${nameInput}".`);
-  };
-
-  const predefinedColors = ['#EE2677', '#FFFFFF'];
 
   return (
-    <Container maxWidth="lg" sx={{ marginTop: '40px', backgroundColor: '#FFFFFF', borderRadius: '10px' }}>
-      <Paper elevation={3} sx={{ padding: '20px', borderRadius: '20px', backgroundColor: '#EE2677', color: '#FFFFFF' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '20px', color: '#FFFFFF', fontFamily: `'Dancing Script', cursive`, textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)' }}>
-          Personnalisez vos Bayas
-        </Typography>
+    <Container maxWidth="sm" sx={{ marginTop: '40px', color: '#EE2677' }}>
+      <Typography variant="h4" sx={{
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '20px',
+        color: '#EE2677',
+        fontFamily: `'Dancing Script', cursive`,
+      }}>
+        Personnaliser votre Baya
+      </Typography>
 
-        <Grid container spacing={4}>
-          {/* Section Couleurs */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Couleurs</Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '10px' }}>
-              {predefinedColors.map((color) => (
-                <Button
-                  key={color}
-                  variant={selectedColors.includes(color) ? 'contained' : 'outlined'}
-                  onClick={() => handleColorChange(color)}
-                  sx={{
-                    backgroundColor: selectedColors.includes(color) ? color : '#FFFFFF',
-                    color: selectedColors.includes(color) ? '#FFFFFF' : '#EE2677',
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    transition: '0.3s',
-                  }}
-                />
-              ))}
-            </Box>
-            <Typography variant="body2" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Couleur personnalisée :</Typography>
-            <ChromePicker color={customColor} onChangeComplete={handleCustomColorChange} />
-          </Grid>
-
-          {/* Section Motifs */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Motif</Typography>
-            <FormControl fullWidth sx={{ marginTop: '10px' }}>
-              <InputLabel id="pattern-select-label" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Choisissez un motif</InputLabel>
-              <Select
-                labelId="pattern-select-label"
-                value={selectedPattern}
-                onChange={(e) => setSelectedPattern(e.target.value)}
-                sx={{ color: '#FFFFFF', '& .MuiSelect-icon': { color: '#FFFFFF' } }}
-              >
-                {patterns.map((pattern) => (
-                  <MenuItem key={pattern} value={pattern}>{pattern}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
-
-          {/* Section Quantité */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Quantité</Typography>
+      <Box sx={{ backgroundColor: '#FFFFFF', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 8px rgba(238, 38, 119, 0.1)' }}>
+        <Grid container spacing={3}>
+          {/* Hip Size Field */}
+          <Grid item xs={12}>
             <TextField
+              label="Tour de hanche (cm)"
               type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
-              inputProps={{ min: 1, max: 10 }}
-              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFFFFF', borderRadius: '5px' }}
+              variant="outlined"
+              fullWidth
+              value={hipSize}
+              onChange={(e) => setHipSize(Number(e.target.value))}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+              }}
             />
           </Grid>
 
-          {/* Section Lettres Personnalisées */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="h6" sx={{ color: '#FFFFFF', fontFamily: `'Dancing Script', cursive` }}>Nom Personnalisé</Typography>
+          {/* Number of Rounds Field */}
+          <Grid item xs={12}>
             <TextField
-              type="text"
-              value={nameInput}
-              onChange={handleNameInputChange}
-              placeholder="Entrez votre nom"
-              sx={{ width: '100%', marginTop: '10px', backgroundColor: '#FFFFFF', borderRadius: '5px' }}
+              label="Nombre de tours"
+              type="number"
+              variant="outlined"
+              fullWidth
+              value={rounds}
+              onChange={(e) => setRounds(Number(e.target.value))}
+              inputProps={{ min: 1 }}
             />
-            <Typography variant="body2" sx={{ color: '#FFFFFF', marginTop: '10px', fontFamily: `'Dancing Script', cursive` }}>
-              Nombre de lettres : {letterCount} (Coût: {letterCount * 400} FCFA)
+          </Grid>
+
+          {/* Custom Text Field */}
+          <Grid item xs={12}>
+            <TextField
+              label="Texte personnalisé (400 FCFA par lettre)"
+              variant="outlined"
+              fullWidth
+              value={customText}
+              onChange={(e) => setCustomText(e.target.value)}
+            />
+          </Grid>
+
+          {/* Photo Upload */}
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              component="label"
+              sx={{ backgroundColor: '#EE2677', color: '#FFFFFF', '&:hover': { backgroundColor: '#F3D3CD' } }}
+            >
+              Télécharger une photo (optionnel)
+              <input
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={handlePhotoUpload}
+              />
+            </Button>
+            {photo && (
+              <Typography variant="body2" sx={{ color: '#EE2677', marginTop: '10px' }}>
+                Fichier sélectionné: {photo.name}
+              </Typography>
+            )}
+          </Grid>
+
+          {/* Total Cost Display */}
+          <Grid item xs={12}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#EE2677', marginTop: '10px' }}>
+              Prix total: {totalCost} FCFA
             </Typography>
           </Grid>
-        </Grid>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-          <Button
-            variant="contained"
-            startIcon={<AddIcon />}
-            onClick={handleSubmit}
-            sx={{
-              backgroundColor: '#EE2677',
-              color: '#FFFFFF',
-              '&:hover': { backgroundColor: '#EE2677', opacity: 0.9 },
-              padding: '10px 20px',
-              fontSize: '16px',
-              borderRadius: '50px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            Ajouter à mon panier
-          </Button>
-        </Box>
-      </Paper>
+          {/* Add to Cart Button */}
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              onClick={handleAddToCart}
+              sx={{ width: '100%', backgroundColor: '#EE2677', color: '#FFFFFF', '&:hover': { backgroundColor: '#F3D3CD' } }}
+            >
+              Ajouter au panier
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 };
 
-export default CustomizationPage;
+export default CustomizeProductPage;

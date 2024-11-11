@@ -20,13 +20,15 @@ const products = [
     price: '20€',
     description: 'Baya classique en or avec des perles élégantes.',
     image: '/images/baya_or.jpg',
+    type: 'classique', // Type defined for classic bayas
   },
   {
     id: 2,
-    name: 'Baya Perle Rose',
+    name: 'Baya Perle Rose Seduction',
     price: '25€',
-    description: 'Baya délicate avec des perles roses.',
+    description: 'Baya délicate avec des perles roses séduisantes.',
     image: '/images/baya_rose.jpg',
+    type: 'seduction', // Type defined for seductive bayas
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const products = [
     price: '30€',
     description: 'Un mélange de perles colorées pour un look vibrant.',
     image: '/images/baya_multicolore.jpg',
+    type: 'seduction', // Type defined for seductive bayas
   },
 ];
 
@@ -46,6 +49,10 @@ const ProductsPage = () => {
 
   const handleAddToCart = (productId: number) => {
     alert(`Produit ${productId} ajouté au panier!`);
+  };
+
+  const handleCustomize = (productId: number) => {
+    router.push(`/customization/${productId}`);
   };
 
   return (
@@ -122,6 +129,23 @@ const ProductsPage = () => {
                     Détails
                   </Button>
                 </Box>
+                {/* Show Customize button only for bayas with seductive pearls */}
+                {product.type === 'seduction' && (
+                  <Button
+                    variant="contained"
+                    onClick={() => handleCustomize(product.id)}
+                    sx={{
+                      backgroundColor: '#EE2677',
+                      color: '#FFFFFF',
+                      marginTop: '10px',
+                      width: '100%',
+                      '&:hover': { backgroundColor: '#F3D3CD' },
+                      fontFamily: `'Open Sans', sans-serif`,
+                    }}
+                  >
+                    Personnaliser
+                  </Button>
+                )}
               </CardContent>
             </Card>
           </Grid>
