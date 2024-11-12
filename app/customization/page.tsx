@@ -11,9 +11,8 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
-const CustomizeProductPage = ({ productId }: { productId: number }) => {
+const CustomizeProductPage = () => { // Retiré productId des props
   const router = useRouter();
   const [hipSize, setHipSize] = React.useState<number | ''>('');
   const [rounds, setRounds] = React.useState<number>(1);
